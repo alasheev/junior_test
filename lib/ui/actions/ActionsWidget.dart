@@ -97,7 +97,7 @@ class _ActionsWidgetState extends NewBasePageState<ActionsWidget> {
         ),
       ),
       staggeredTileBuilder: (int index) => new StaggeredTile.count(2, index.isEven ? 2 : 1),
-      mainAxisSpacing: 200,
+      mainAxisSpacing: 10,
       crossAxisSpacing: 10,
     );
   }
