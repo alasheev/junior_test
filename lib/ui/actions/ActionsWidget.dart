@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:junior_test/blocs/actions/ActionsQueryBloc.dart';
 import 'package:junior_test/blocs/base/bloc_provider.dart';
@@ -70,6 +71,7 @@ class _ActionsWidgetState extends NewBasePageState<ActionsWidget> {
             image: DecorationImage(
               image: NetworkImage(Tools.getImagePath(items[index].imgFull)),
               fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(Colors.black54, BlendMode.darken),
             ),
           ),
           child: Column(
@@ -81,11 +83,12 @@ class _ActionsWidgetState extends NewBasePageState<ActionsWidget> {
                     items[index].name,
                     style:
                         TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-                    maxLines: 2,
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
-              Align(
+              Container(
+                padding: EdgeInsets.all(5),
                 alignment: Alignment.bottomRight,
                 child: Text(
                   items[index].shop,
@@ -96,7 +99,7 @@ class _ActionsWidgetState extends NewBasePageState<ActionsWidget> {
           ),
         ),
       ),
-      staggeredTileBuilder: (int index) => new StaggeredTile.count(2, index.isEven ? 2 : 1),
+      staggeredTileBuilder: (int index) => new StaggeredTile.count(2, index.isEven ? 4 : 2),
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
     );
